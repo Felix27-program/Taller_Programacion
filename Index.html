@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/Style.css">
+    <title>PetLix</title>
+</head>
+<body class="grid-container">
+	
+	<div id="ventana-flotante-Inicio" class="ventana-flotante-Inicio">
+        <div class="contenido">
+            <span onclick="cerrarVentana()">&times;</span>
+            <img src="Img/BlackFriday_banner6.webp" alt="ImagendeVentana">
+        </div>
+    </div>
+
+    <script>
+        function cerrarVentana() {
+            document.getElementById("ventana-flotante-Inicio").classList.add('hidden');
+        }
+	</script>
+    
+    <header class="header">
+        <div class="logo">
+            <img src="Img/logo.png" alt="logo de la compañía">
+        </div>
+
+        <nav>
+            <div class="main-nav" onclick="toggleMenu()">&#9776;</div>
+            <ul class="menu">
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Servicios</a></li>
+              <li><a href="#">Nosotros</a></li>
+              <li><a href="#">Contacto</a></li>
+            </ul>
+          </nav>
+          
+          <script> //menu responsivo
+            
+            function toggleMenu() {
+                const menu = document.querySelector('.menu');
+                if (menu.style.display === 'flex') {
+                    menu.style.display = 'none';
+                } else {
+                    menu.style.display = 'flex';
+                }
+            }
+        </script>
+
+    <div class="actions">
+        <img src="Img/user.png" alt="Login">
+        <img src="Img/carrito.png" alt="Carrito" class="carrito">
+        <span id="cart-counter">0</span>
+    </div>
+
+    <div id="ventana-carrito" class="ventana-flotante">
+        <div class="contenido">
+            <span onclick="cerrarCarrito()">&times;</span>
+            <h2>Carrito de Compras</h2>
+            <div id="lista-carrito">
+               
+            </div>
+            <button onclick="finalizarCompra()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    </header>
+
+    
+
+    
+    <nav class="navbar-animals">
+        <ul class="nav-menu">
+            <li><a href="Perro.html">Perro</a>
+                <ul>
+                    <li><a href="#">Comida</a></li>
+                    <li><a href="#">Accesorios</a></li>
+                    <li><a href="#">Ropas</a></li>
+                    <li><a href="#">Disfraces</a></li>
+                </ul>
+            </li>
+            <li><a href="#gato">Gato</a>
+                <ul>
+                    <li><a href="#">Comida</a></li>
+                    <li><a href="#">Accesorios</a></li>
+                    <li><a href="#">Ropas</a></li>
+                    <li><a href="#">Disfraces</a></li>
+                </ul>
+            </li>
+            <li><a href="#otros">Otros</a>
+                <ul>
+                    <li><a href="#">Ave</a></li>
+                    <li><a href="#">Conejo</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="buscador">
+            <input type="text" id="busqueda" placeholder="Buscar productos...">
+            <button onclick="realizarBusqueda()">
+                Buscar
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        
+    </nav>
+    
+
+    
+    <article class="main">
+        <section class="banner">
+            <h1 class="titulobanner" id="pronto">PRONTO</h1>
+        </section>
+        <script>
+            //el evento hover
+            const pronto = document.getElementById('pronto');
+
+            pronto.addEventListener('mouseover', function() {
+                pronto.style.color = 'red'; 
+            });
+            pronto.addEventListener('mouseout', function() {
+                pronto.style.color = ''; 
+            });
+        </script>
+        
+        <section class="articulos">
+            <h2 class="title-articulo">NOSOTROS</h2>
+            <p class="parrafo-articulo">
+                Bienvenidos a PetLix, la tienda especializada en productos
+                de alta calidad para el bienestar de tus mascotas. Explora nuestra amplia variedad 
+                de artículos que incluyen alimentos, juguetes, y productos de higiene, todos diseñados
+                para asegurar la salud y felicidad de tus compañeros peludos.
+            </p>
+            <div class="galeria">
+                
+                <div class="box-galeria">
+                    <div class="box-img">
+                        <img src="Img/Juguete-Pescadito-para-Gatos-5.jpg" alt="Imagen">
+                    </div>
+                    <h3 class="product-name">Juguete Pescadito para Gatos</h3> 
+                    <a href="#" class="btn-img">COMPRAR</a>
+                    <a href="#" class="btn-img cart-btn"onclick="agregarAlCarrito(this)">🛒</a>
+                </div>
+                <div class="box-galeria">
+                    <div class="box-img">
+                        <img src="Img/product2.jpg" alt="Imagen">
+                    </div>
+                    <h3 class="product-name">Disfraz DBZ Enterizo</h3> 
+                    <a href="#" class="btn-img">COMPRAR</a>
+                    <a href="#" class="btn-img cart-btn"onclick="agregarAlCarrito(this)">🛒</a>
+                </div>
+                <div class="box-galeria">
+                    <div class="box-img">
+                        <img src="Img/product3.jpg" alt="Imagen">
+                    </div>
+                    <h3 class="product-name">Disfraz Mario Bross Enterizo</h3> 
+                    <a href="#" class="btn-img">COMPRAR</a>
+                    <a href="#" class="btn-img cart-btn"onclick="agregarAlCarrito(this)">🛒</a>
+                </div>
+                <div class="box-galeria">
+                    <div class="box-img">
+                        <img src="Img/product4.jpg" alt="Imagen">
+                    </div>
+                    <h3 class="product-name">Que Woww Disfraz Batman</h3> 
+                    <a href="#" class="btn-img">COMPRAR</a>
+                    <a href="#" class="btn-img cart-btn"onclick="agregarAlCarrito(this)">🛒</a>
+                </div>
+                <div class="box-galeria">
+                    <div class="box-img">
+                        <img src="Img/ropa1.jpg" alt="Imagen">
+                    </div>
+                    <h3 class="product-name">Blue Stars Polo Minion</h3> 
+                    <a href="#" class="btn-img">COMPRAR</a>
+                    <a href="#" class="btn-img cart-btn"onclick="agregarAlCarrito(this)">🛒</a>
+                </div>
+                <div class="box-galeria">
+                    <div class="box-img">
+                        <img src="Img/astronauta.jpg" alt="Imagen">
+                    </div>
+                    <h3 class="product-name">Scrappie Shopper Disfraz Astronauta</h3> 
+                    <a href="#" class="btn-img">COMPRAR</a>
+                    <a href="#" class="btn-img cart-btn"onclick="agregarAlCarrito(this)">🛒</a>
+                </div>
+                <div class="box-galeria">
+                    <div class="box-img">
+                        <img src="Img/gorrodeunicornio.jpg" alt="Imagen">
+                    </div>
+                    <h3 class="product-name">Sombrero de Unicornio</h3> 
+                    <a href="#" class="btn-img">COMPRAR</a>
+                    <a href="#" class="btn-img cart-btn"onclick="agregarAlCarrito(this)">🛒</a>
+                </div>
+                <div class="box-galeria">
+                    <div class="box-img">
+                        <img src="Img/juguete-gato.jpg" alt="Imagen">
+                    </div>
+                    <h3 class="product-name">Fringe Juguete A Little Fishy</h3> 
+                    <a href="#" class="btn-img">COMPRAR</a>
+                    <a href="#" class="btn-img cart-btn"onclick="agregarAlCarrito(this)">🛒</a>
+                </div>
+                
+            </div>
+
+            <h2>Productos Destacados</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre del Producto</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Comida para Perro</td>
+                        <td>Alimento balanceado para perros de tamaño mediano.</td>
+                        <td>s/ 25.00</td>
+                    </tr>
+                </tr>
+                <tr>
+                    <td>Juguete para Gato</td>
+                    <td>Pelota interactiva para gatos, ideal para fomentar su actividad.</td>
+                    <td>s/ 15.00</td>
+                </tr>
+                <tr>
+                    <td>Collar para Perro</td>
+                    <td>Collar de nylon ajustable para perros de todas las razas.</td>
+                    <td>s/ 12.50</td>
+                </tr>
+                <tr>
+                    <td>Cama para Perro</td>
+                    <td>Cama ortopédica para perros grandes, ofrece máximo confort.</td>
+                    <td>s/ 80.00</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h2>Contacto</h2>
+            <form id="formulario">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre">
+        
+                <label for="email">Correo Electrónico:</label>
+                <input type="text" id="email" name="email" placeholder="Ingrese su correo">
+        
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje"></textarea>
+        
+                <button type="submit"onclick="limpiarFormulario()">Enviar</button>
+                
+            </form>
+            <script> // alert 
+                function mostrarAlerta(event) {
+                    event.preventDefault(); 
+
+                    
+                    var nombre = document.getElementById("name").value;
+                    var correo = document.getElementById("email").value;
+                    var mensaje = document.getElementById("message").value;
+
+                    
+                    alert("Gracias por contactarnos " + nombre + " hemos recibido tu mensaje: \n" + mensaje);
+     
+                }
+
+                const formulario = document.getElementById("formulario");
+                formulario.addEventListener("submit", function (event) {
+                event.preventDefault(); 
+                alert("Formulario enviado correctamente");
+                limpiarFormulario(); 
+                });
+
+                
+                function limpiarFormulario() {
+                formulario.reset(); 
+                }
+
+
+            </script>
+            
+            
+        </section>
+    </article>
+    
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Acerca de</h3>
+                <ul>
+                    <li><a href="#">Historia</a></li>
+                    <li><a href="#">Misión</a></li>
+                    <li><a href="#">Visión</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Redes Sociales</h3>
+                <ul class="social-icons">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 PetLix. Todos los derechos reservados.
+        </div>
+    </footer>
+    
+    <script>
+        
+class CarritoManager {
+    constructor() {
+        this.carrito = [];
+        this.inicializarEventListeners();
+    }
+
+    inicializarEventListeners() {
+        document.addEventListener('DOMContentLoaded', () => {
+            const carritoIcon = document.querySelector('.actions .carrito');
+            carritoIcon.addEventListener('click', () => this.abrirCarrito());
+
+            
+            const botonesAgregar = document.querySelectorAll('.btn-img.cart-btn');
+            botonesAgregar.forEach(boton => {
+                boton.addEventListener('click', (event) => this.agregarAlCarrito(event.target));
+            });
+
+         
+            const continuarComprandoBtn = document.getElementById('continuar-comprando');
+            if (continuarComprandoBtn) {
+                continuarComprandoBtn.addEventListener('click', () => this.cerrarCarrito());
+            }
+        });
+    }
+
+    abrirCarrito() {
+        const ventanaCarrito = document.getElementById("ventana-carrito");
+        ventanaCarrito.classList.add('activo');
+        this.mostrarCarrito();
+    }
+
+    cerrarCarrito() {
+            document.getElementById("ventana-carrito").classList.add('hidden');
+        }
+
+    agregarAlCarrito(button) {
+        const producto = button.closest(".box-galeria");
+        const nombreProducto = producto.querySelector(".product-name").textContent;
+        const imagenProducto = producto.querySelector(".box-img img").src;
+        
+      
+        const productoExistente = this.carrito.find(item => item.nombre === nombreProducto);
+        
+        if (productoExistente) {
+           
+            productoExistente.cantidad += 1;
+        } else {
+           
+            this.carrito.push({ 
+                nombre: nombreProducto, 
+                imagen: imagenProducto,
+                cantidad: 1,
+                precio: this.obtenerPrecio(producto)
+            });
+        }
+
+      
+        this.actualizarContador();
+        this.mostrarCarrito();
+
+        
+        button.textContent = "✓";
+        setTimeout(() => {
+            button.textContent = "🛒";
+        }, 1500);
+    }
+
+    obtenerPrecio(producto) {
+        
+        
+        const precios = {
+            "Juguete Pescadito para Gatos": 15.99,
+            "Disfraz DBZ Enterizo": 29.99,
+            "Disfraz Mario Bross Enterizo": 34.99,
+            "Que Woww Disfraz Batman": 39.99,
+            "Blue Stars Polo Minion": 19.99,
+            "Scrappie Shopper Disfraz Astronauta": 44.99,
+            "Sombrero de Unicornio": 12.99,
+            "Fringe Juguete A Little Fishy": 17.99
+        };
+        return precios[producto.querySelector(".product-name").textContent] || 0;
+    }
+
+    eliminarDelCarrito(index) {
+        this.carrito.splice(index, 1);
+        this.actualizarContador();
+        this.mostrarCarrito();
+    }
+
+    cambiarCantidad(index, cantidad) {
+        if (cantidad > 0) {
+            this.carrito[index].cantidad = cantidad;
+            this.mostrarCarrito();
+        } else {
+            this.eliminarDelCarrito(index);
+        }
+    }
+
+    actualizarContador() {
+        const cartCounter = document.getElementById("cart-counter");
+        const totalProductos = this.carrito.reduce((total, producto) => total + producto.cantidad, 0);
+        cartCounter.textContent = totalProductos;
+    }
+
+    calcularTotal() {
+        return this.carrito.reduce((total, producto) => total + (producto.precio * producto.cantidad), 0).toFixed(2);
+    }
+
+    mostrarCarrito() {
+        const listaCarrito = document.getElementById("lista-carrito");
+        const totalCarrito = document.getElementById("total-carrito");
+        
+       
+        listaCarrito.innerHTML = "";
+
+    
+        this.carrito.forEach((producto, index) => {
+            const itemCarrito = document.createElement("div");
+            itemCarrito.classList.add("item-carrito");
+            itemCarrito.innerHTML = `
+                <img src="${producto.imagen}" alt="${producto.nombre}">
+                <div class="detalles-producto">
+                    <span class="nombre-producto">${producto.nombre}</span>
+                    <span class="precio-producto">S/ ${producto.precio.toFixed(2)}</span>
+                    <div class="control-cantidad">
+                        <button onclick="carritoManager.cambiarCantidad(${index}, ${producto.cantidad - 1})">-</button>
+                        <span>${producto.cantidad}</span>
+                        <button onclick="carritoManager.cambiarCantidad(${index}, ${producto.cantidad + 1})">+</button>
+                    </div>
+                </div>
+                <button class="eliminar-producto" onclick="carritoManager.eliminarDelCarrito(${index})">🗑️</button>
+            `;
+            listaCarrito.appendChild(itemCarrito);
+        });
+
+      
+        if (totalCarrito) {
+            totalCarrito.textContent = `Total: S/ ${this.calcularTotal()}`;
+        }
+    }
+
+    finalizarCompra() {
+        if (this.carrito.length === 0) {
+            alert("El carrito está vacío.");
+            return;
+        }
+
+      
+        const detallesCompra = this.carrito.map(producto => 
+            `${producto.nombre} - Cantidad: ${producto.cantidad} - Subtotal: S/ ${(producto.precio * producto.cantidad).toFixed(2)}`
+        ).join("\n");
+
+        alert(`Detalles de la compra:\n${detallesCompra}\n\nTotal: S/ ${this.calcularTotal()}\n\n¡Gracias por tu compra!`);
+
+   
+        this.carrito = [];
+        this.actualizarContador();
+        this.mostrarCarrito();
+        this.cerrarCarrito();
+    }
+}
+
+
+const carritoManager = new CarritoManager(); </script>
+</body>
+
+</html>
